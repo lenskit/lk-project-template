@@ -6,7 +6,9 @@ project_name:
 package_name:
   type: str
   help: What is your Python package name?
+  default: "{{project_name}}"
 
 start_year:
   type: int
   help: What year was the project started?
+  default: 2023
