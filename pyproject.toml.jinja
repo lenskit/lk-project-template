@@ -35,6 +35,21 @@ doc = [
 Homepage = "https://{{project_name}}.lenksit.org"
 GitHub = "https://github.com/lenskit/{{project_name}}"
 
+# configure build tools
+[tool.flit.sdist]
+include = ["tests/*"]
+exclude = [
+    ".github"
+]
+
+# need this for the SCM plugins to work
+[tool.setuptools.packages.find]
+exclude = ["envs"]
+
+# settings for generating conda environments for dev & CI, when needed
+[tool.pyproject2conda]
+channels = ["conda-forge"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py38"
@@ -45,6 +60,3 @@ exclude = [
     "build",
     "dist",
 ]
-
-[tool.pyproject2conda]
-channels = ["conda-forge"]
