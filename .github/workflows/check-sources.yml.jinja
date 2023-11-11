@@ -6,7 +6,7 @@ on:
   pull_request:
 
 concurrency:
-  group: check-${{github.ref}}
+  group: check-{% raw %}${{github.ref}}{% endraw %}
   cancel-in-progress: true
 
 jobs:
@@ -33,22 +33,26 @@ jobs:
     - name: 🪮 Check source code formatting
       id: format
       run: |
-        if pipx run ruff format --diff {{package_name}}; then
+        if pipx run ruff format --diff $PKG_DIR; then
           echo passed=yes >>"$GITHUB_OUTPUT"
         else
           echo passed=no >>"$GITHUB_OUTPUT"
           echo "::error::source code not formatted"
         fi
+      env:
+        PKG_DIR: {{ package_name }}
 
     - name: 🐜 Check source code lint rules
       id: lint
       run: |
-        if pipx run ruff check --output-format=github {{package_name}}; then
+        if pipx run ruff check --output-format=github $PKG_DIR; then
           echo passed=yes >>"$GITHUB_OUTPUT"
         else
           echo passed=no >>"$GITHUB_OUTPUT"
           echo "::error::source code lint check failed"
         fi
+      env:
+        PKG_DIR: {{ package_name }}
 
     - name: 🧾 Checking results
       run: |
@@ -65,6 +69,6 @@ jobs:
             fi
         fi
       env:
-        FMT_PASSED: ${{ steps.fmt.outputs.passed }}
-        LINT_PASSED: ${{ steps.lint.outputs.passed }}
+        FMT_PASSED: {% raw %}${{ steps.fmt.outputs.passed }}{% endraw %}
+        LINT_PASSED: {% raw %}${{ steps.lint.outputs.passed }}{% endraw %}
         LINT_REQUIRED: {{ require_lint }}
