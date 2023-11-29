@@ -1,6 +1,6 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "{{project_name}}"
@@ -23,7 +23,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "flit >=3.8",
   "ruff",
   "copier",
   "sphinx-autobuild",
@@ -42,15 +41,11 @@ Homepage = "https://{{project_name}}.lenksit.org"
 GitHub = "https://github.com/lenskit/{{project_name}}"
 
 # configure build tools
-[tool.flit.sdist]
-include = ["tests/*"]
-exclude = [
-  ".github"
-]
+[tool.setuptools]
+packages = ["{{package_name}}"]
 
-# need this for the SCM plugins to work
-[tool.setuptools.packages.find]
-exclude = ["envs"]
+[tool.setuptools_scm]
+version_scheme = "release-branch-semver"
 
 # settings for generating conda environments for dev & CI, when needed
 [tool.pyproject2conda]
