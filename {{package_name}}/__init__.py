@@ -1,3 +1,0 @@
-"""
-Describe your package here.
-"""
