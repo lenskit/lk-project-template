@@ -30,7 +30,8 @@ dev = [
   "build",
   "twine",
   "ruff",
-  {%- if typecheck %}"pyright",
+  {%- if typecheck %}
+  "pyright",
   {% endif -%}
   "copier",
   "sphinx-autobuild",
