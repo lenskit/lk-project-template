@@ -77,3 +77,10 @@ test = ["pytest", "hypothesis"]
 
 [tool.mypy]
 exclude = "^docs/"
+
+[tool.pyright]
+exclude = [
+  "docs/*",
+]
+reportMissingImports = true
+reportMissingTypeStubs = false
