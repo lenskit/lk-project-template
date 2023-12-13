@@ -3,5 +3,8 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {"source.organizeImports": true},
     "editor.formatOnSave": true,
-  },
+  }
+  {%- if typecheck %},
+  "python.analysis.typeCheckingMode": "strict"
+  {% endif %}
 }

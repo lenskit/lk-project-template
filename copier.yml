@@ -22,6 +22,11 @@ start_year:
   help: What year was the project started?
   default: 2023
 
+typecheck:
+  type: bool
+  help: Should type-checking be enabled for this project?
+  default: false
+
 require_lint:
   type: bool
   help: Should builds hard-fail on lint failures?
