@@ -84,6 +84,11 @@ test = ["pytest", "hypothesis"]
 exclude = "^docs/"
 
 [tool.pyright]
+{%- if typecheck %}
+typeCheckingMode = "strict"
+{% else %}
+typeCheckingMode = "basic"
+{% endif -%}
 exclude = [
   "docs/*",
 ]
