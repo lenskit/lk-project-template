@@ -69,7 +69,7 @@ jobs:
               fi
           fi
         env:
-          FMT_PASSED: {% raw %}${{ steps.fmt.outputs.passed }}{% endraw %}
+          FMT_PASSED: {% raw %}${{ steps.format.outputs.passed }}{% endraw %}
           LINT_PASSED: {% raw %}${{ steps.lint.outputs.passed }}{% endraw %}
           LINT_REQUIRED: {{ require_lint }}
 
