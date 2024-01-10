@@ -22,6 +22,11 @@ start_year:
   help: What year was the project started?
   default: 2023
 
+owner:
+  type: str
+  help: Who is the copyright owner?
+  default: Drexel University, Boise State University, and contributors
+
 typecheck:
   type: bool
   help: Should type-checking be enabled for this project?

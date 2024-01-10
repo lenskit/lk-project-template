@@ -1,0 +1,15 @@
+root: true
+start_year: {{start_year}}
+owner: {{owner}}
+substring: This file is part of
+template: |-
+  {comment_start} This file is part of {{project_title}}.
+  {% if start_year < 2023 -%}
+  {comment_middle} Copyright (C) {start_year}-2023 Boise State University
+  {comment_middle} Copyright (C) 2023-{end_year} Drexel University
+  {%- else -%}
+  {comment_middle} Copyright (C) {dates} {owner}
+  {%- endif %}
+  {comment_middle} Licensed under the MIT license, see LICENSE.md for details.
+  {comment_middle} SPDX-License-Identifier: MIT
+  {comment_end}
