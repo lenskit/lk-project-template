@@ -25,7 +25,7 @@ start_year:
 owner:
   type: str
   help: Who is the copyright owner?
-  default: Drexel University, Boise State University, and contributors
+  default: Drexel University and contributors
 
 typecheck:
   type: bool
