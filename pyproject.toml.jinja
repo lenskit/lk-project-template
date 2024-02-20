@@ -27,16 +27,15 @@ dependencies = [
 dev = [
   "setuptools>=64",
   "setuptools_scm>=8",
-  "build",
-  "twine",
+  "build ==1.*",
   "ruff >= 0.2",
   {%- if typecheck %}
   "pyright",
   {% endif -%}
-  "copier",
-  "unbeheader",         # p2c: -p
+  "copier ==9.*",
+  "unbeheader ~= 1.3",  # p2c: -p
   "ipython",
-  "pyproject2conda",
+  "pyproject2conda ",
   "sphinx-autobuild",
 ]
 test = [
