@@ -15,15 +15,15 @@ build:
 # install the package
 [confirm("this installs package from a wheel, continue [y/N]?")]
 install:
-    {{PIP}} install .
+    {%raw%}{{PIP}}{%endraw%} install .
 
 # install the package (editable)
 install-editable:
-    {{PIP}} install -e .
+    {%raw%}{{PIP}}{%endraw%} install -e .
 
 # set up for development in non-conda environments
 install-dev:
-    {{PIP}} install -e '.[dev,test,doc]'
+    {%raw%}{{PIP}}{%endraw%} install -e '.[dev,test,doc]'
 
 # run tests with default configuration
 test:
